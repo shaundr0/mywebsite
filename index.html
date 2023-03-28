@@ -117,18 +117,21 @@
     <h2>SOFTWARE DEVELOPER</h2>
     <h3 class="zoomIn"><a href="https://github.com/shaundr0" target="_blank" rel="noopener noreferrer" data-final="@shaundr0">@shaundr0</a></h3>
     <script>
-      window.addEventListener('load', function() {
-        document.body.style.opacity = "1";
-        document.querySelector('h3').classList.add('zoomIn');
-      });
-
+      // get the user's preferred color scheme
+      const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // save the user's preferred color scheme to local storage
+      localStorage.setItem('colorScheme', userPrefersDark ? 'dark' : 'light');
+      
+      // set the favicon based on the user's preferred color scheme
       const favicon = document.getElementById('favicon');
-
-      // Detect dark mode preference and update favicon accordingly
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      darkModeMediaQuery.addListener(function(e) {
-        const newFavicon = e.matches ? 'favicon-dark.ico' : 'favicon-light.ico';
-        favicon.setAttribute('href', newFavicon);
+      favicon.href = localStorage.getItem('colorScheme') === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
+      
+      // update the favicon when the user's preferred color scheme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+        const colorScheme = event.matches ? 'dark' : 'light';
+        favicon.href = colorScheme === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
+        localStorage.setItem('colorScheme', colorScheme);
       });
     </script>
   </body>
