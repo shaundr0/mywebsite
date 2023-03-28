@@ -80,6 +80,14 @@
         text-decoration: none;
       }
 
+      footer {
+        font-family: monospace, monospace;
+        font-size: 1.2em;
+        margin-top: 2em;
+        padding-bottom: 0.5em;
+        text-align: center;
+      }
+
       @media (prefers-color-scheme: dark) {
         body {
           background-color: #150033;
@@ -112,27 +120,39 @@
       }
     </style>
   </head>
-  <body style="text-align: center;">
-    <h1>SHAUN DA ROCHA</h1>
-    <h2>SOFTWARE DEVELOPER</h2>
-    <h3 class="zoomIn"><a href="https://github.com/shaundr0" target="_blank" rel="noopener noreferrer" data-final="@shaundr0">@shaundr0</a></h3>
-    <script>
-      // get the user's preferred color scheme
-      const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      // save the user's preferred color scheme to local storage
-      localStorage.setItem('colorScheme', userPrefersDark ? 'dark' : 'light');
-      
-      // set the favicon based on the user's preferred color scheme
-      const favicon = document.getElementById('favicon');
-      favicon.href = localStorage.getItem('colorScheme') === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
-      
-      // update the favicon when the user's preferred color scheme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-        const colorScheme = event.matches ? 'dark' : 'light';
-        favicon.href = colorScheme === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
-        localStorage.setItem('colorScheme', colorScheme);
-      });
-    </script>
-  </body>
-</html>
+ <body style="text-align: center;">
+  <h1>SHAUN DA ROCHA</h1>
+  <h2>SOFTWARE DEVELOPER</h2>
+  <h3 class="zoomIn"><a href="https://github.com/shaundr0" target="_blank" rel="noopener noreferrer" data-final="@shaundr0">@shaundr0</a></h3>
+  <footer style="font-family: monospace, monospace; font-size: 0.8em; position: fixed; bottom: 0; left: 0; right: 0; padding: 0.5em; background-color: #FAF0E6;">
+    &copy; <span id="currentYear"></span> Shaun &amp; Friends. All Rights Reserved.
+  </footer>
+
+  <script>
+    // get the user's preferred color scheme
+    const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // save the user's preferred color scheme to local storage
+    localStorage.setItem('colorScheme', userPrefersDark ? 'dark' : 'light');
+    
+    // set the favicon based on the user's preferred color scheme
+    const favicon = document.getElementById('favicon');
+    favicon.href = localStorage.getItem('colorScheme') === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
+    
+    // update the favicon when the user's preferred color scheme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      const colorScheme = event.matches ? 'dark' : 'light';
+      favicon.href = colorScheme === 'dark' ? 'favicon-dark.ico' : 'favicon-light.ico';
+      localStorage.setItem('colorScheme', colorScheme);
+    });
+    
+    // set the current year in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // fade in the body content
+    window.addEventListener('load', function() {
+      document.body.style.opacity = "1";
+      document.querySelector('h3').classList.add('zoomIn');
+    });
+  </script>
+</body>
