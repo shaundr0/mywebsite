@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SHAUN DA ROCHA</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #FAF0E6; 
+        color: #150033; 
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        line-height: 1;
+        opacity: 0;
+        animation: fadeInZoom 1.5s ease-in-out forwards;
+        will-change: transform;
+        transform-style: preserve-3d;
+      }
+
+      h1, h2, h3 {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        max-width: 90%;
+        white-space: nowrap;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+
+      h1 {
+        font-size: 9vw;
+        animation: zoomIn 1.5s ease-in-out forwards;
+        will-change: transform;
+      }
+
+      h2 {
+        font-size: 7vw;
+        margin-bottom: 0.5em;
+        animation: zoomIn 1.5s ease-in-out forwards;
+        will-change: transform;
+      }
+
+    h3 {
+  font-size: 4vw;
+  margin-top: 0.5em;
+  margin-left: 65%;
+  color: #150033;
+  text-decoration: none;
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out, font-size 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  color: inherit;
+  will-change: transform;
+}
+
+h3:hover {
+  opacity: 0.7;
+  transform: scale(0.9);
+  font-size: 3.6vw;
+  will-change: transform;
+}
+
+      h3.zoomIn {
+        animation: zoomIn 1.5s ease-in-out forwards;
+      }
+
+      h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #150033;
+          color: #FAF0E6;
+        }
+      }
+
+      @keyframes fadeInZoom {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SHAUN DA ROCHA</h1>
+    <h2>SOFTWARE DEVELOPER</h2>
+    <h3 class="zoomIn"><a href="https://github.com/shaundr0" target="_blank" rel="noopener noreferrer" data-final="@shaundr0">@shaundr0</a></h3>
+    <script>
+      window.addEventListener('load', function() {
+        document.body.style.opacity = "1";
+        document.querySelector('h3').classList.add('zoomIn');
+      });
+    </script>
+  </body>
+</html>
