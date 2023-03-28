@@ -26,7 +26,10 @@
         transition: opacity 1.5s ease-in-out;
       }
 
-      h1, h2 {
+      h1, h2, h3 {
+        animation: fadeInZoom 1.5s ease-in-out forwards;
+        will-change: transform;
+        transform-style: preserve-3d;
         margin: 0;
         padding: 0;
         text-align: center;
@@ -46,6 +49,7 @@
         font-size: 7vw;
         font-weight: 400;
         margin-bottom: 0.5em;
+        animation: zoomIn 1.5s ease-in-out forwards;
         will-change: transform;
       }
 
@@ -78,7 +82,7 @@
       }
 
       footer {
-        font-family: monospace;
+        font-family: monospace, monospace;
         font-size: 1.2em;
         margin-top: 2em;
         padding-bottom: 2em;
@@ -89,6 +93,9 @@
         right: 0;
         color: inherit;
         background-color: transparent;
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
       }
       
       @media (prefers-color-scheme: dark) {
@@ -99,6 +106,17 @@
 
         #favicon {
           content: url(favicon-dark.ico);
+        }
+      }
+
+      @keyframes fadeInZoom {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
         }
       }
 
