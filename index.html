@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>SHAUN DA ROCHA</title>
+    <link rel="icon" type="image/x-icon" id="favicon" href="favicon-light.ico">
     <style>
       html {
         height: 100%;
@@ -54,7 +55,7 @@
       h3 {
         font-size: 4vw;
         margin-top: 0.5em;
-        margin-left: 60%; /* adjust this value to move the h3 element left or right */
+        margin-left: 60%;
         color: #150033;
         text-decoration: none;
         transform: scale(1);
@@ -83,6 +84,10 @@
         body {
           background-color: #150033;
           color: #FAF0E6;
+        }
+
+        #favicon {
+          content: url(favicon-dark.ico);
         }
       }
 
@@ -115,6 +120,15 @@
       window.addEventListener('load', function() {
         document.body.style.opacity = "1";
         document.querySelector('h3').classList.add('zoomIn');
+      });
+
+      const favicon = document.getElementById('favicon');
+
+      // Detect dark mode preference and update favicon accordingly
+      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      darkModeMediaQuery.addListener(function(e) {
+        const newFavicon = e.matches ? 'favicon-dark.ico' : 'favicon-light.ico';
+        favicon.setAttribute('href', newFavicon);
       });
     </script>
   </body>
