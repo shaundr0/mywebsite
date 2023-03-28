@@ -84,10 +84,17 @@
         font-family: monospace, monospace;
         font-size: 1.2em;
         margin-top: 2em;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
         text-align: center;
-        transition: none !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: inherit;
+        background-color: transparent;
         animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
       }
       
       @media (prefers-color-scheme: dark) {
@@ -126,8 +133,8 @@
   <h1>SHAUN DA ROCHA</h1>
   <h2>SOFTWARE DEVELOPER</h2>
   <h3 class="zoomIn"><a href="https://github.com/shaundr0" target="_blank" rel="noopener noreferrer" data-final="@shaundr0">@shaundr0</a></h3>
-  <footer style="font-family: monospace, monospace; font-size: 0.8em; position: fixed; bottom: 0; left: 0; right: 0; padding: 0.5em; background-color: #FAF0E6;">
-    &copy; <span id="currentYear"></span> Shaun &amp; Friends. All Rights Reserved.
+  <footer style="font-family: monospace, monospace; font-size: 1.2em; position: fixed; bottom: 0; left: 0; right: 0; padding: 1em 0; color: inherit;">
+  &copy; <span id="currentYear"></span> Shaun &amp; Friends. All Rights Reserved.
   </footer>
 
   <script>
